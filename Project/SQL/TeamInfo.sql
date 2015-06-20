@@ -1,0 +1,12 @@
+insert into Team values ('Baltimore Orioles','Baltimore','Maryland',8888482473,'Buck Showalter',100);
+insert into Team values ('New York Yankees','Bronx','New York',7182934300,'Henry G. Steinbrenner',200);
+insert into Team values ('Chicago White Sox','Chicago','Illinios',3126741000, 'Robin Ventura', 300);
+insert into Team values ('Cleveland Indians','Cleveland','Ohio',2164204200,'Terry Francona',400);
+insert into Team values ('Houston Astros','Houston', 'Texas',7132598000,'Bo Porter',500);
+insert into Team values ('Los Angeles Angels','Anaheim','California',7149402000,'Mike Scioscia',600);
+insert into Team values ('Atlanta Braves','Atlanta','Georgia',4045227630,'Fredi Gonzalez',700);
+insert into Team values ('Washington Nationals','Washington','District of Columbia',2026756287,'Davey Johnson',800);
+insert into Team values ('Chicago Cubs','Chicago','Illinois',7734042827,'Dale Sveum',900);
+insert into Team values ('Cincinnati Reds','Cincinnati','Ohio',5137657000,'Dusty Baker',1000);
+insert into Team values ('Arizona Diamondbacks','Phoenix','Arizona',6024626500,'Kirk Gibson',2000);
+insert into Team values ('San Francisco Giants','San Francisco','California',4159722000,'Bruce Bochy',3000);

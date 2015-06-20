@@ -1,0 +1,12 @@
+insert into Bat values (0112325,'Jim and John Co.','Maryland',100);
+insert into Bat values (2568904,'Nilly and Bob Inc.','Florida',200);
+insert into Bat values (0213563,'Johnson and Johnson','Japan',300);
+insert into Bat values (9560145,'Harley Davis Co.','California',400);
+insert into Bat values (4217806,'Willy Wonka Factory','Mexico',500);
+insert into Bat values (8487267,'Louisville Slugger','Kentucky',600);
+insert into Bat values (0112788,'Jim and John Co.','Maryland',700);
+insert into Bat values (2569922,'Nilly and Bob Inc.','Florida',800);
+insert into Bat values (0213777,'Johnson and Johnson','Japan',900);
+insert into Bat values (9563865,'Harley Davis Co.','California',1000);
+insert into Bat values (4217223,'Willy Wonka Factory','Mexico',2000);
+insert into Bat values (8489453,'Louisville Slugger','Kentucky',3000);

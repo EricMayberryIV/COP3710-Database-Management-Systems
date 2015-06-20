@@ -1,0 +1,122 @@
+SQL> select e.job as "JOB", e.ename as "NAME"
+  2  from emp e, dept d
+  3  where e.deptno = d.deptno
+  4  and d.dname = 'RESEARCH';
+
+JOB       NAME                                                                  
+--------- ----------                                                            
+CLERK     SMITH                                                                 
+MANAGER   JONES                                                                 
+ANALYST   SCOTT                                                                 
+CLERK     ADAMS                                                                 
+ANALYST   FORD                                                                  
+
+SQL> select e.ename as "NAME", e.deptno as "Dept #"
+  2  from emp e, emp d
+  3  where e.mgr = d.mgr
+  4  and d.ename = 'TURNER';
+
+NAME           Dept #                                                           
+---------- ----------                                                           
+ALLEN              30                                                           
+WARD               30                                                           
+MARTIN             30                                                           
+TURNER             30                                                           
+JAMES              30                                                           
+
+SQL> select e.ename as "NAME", e.job as "JOB", e.sal as "SALARY"
+  2  from emp e, emp d
+  3  where e.job = d.job
+  4  and e.sal = d.sal
+  5  and d.ename = 'FORD';
+
+NAME       JOB           SALARY                                                 
+---------- --------- ----------                                                 
+SCOTT      ANALYST         3000                                                 
+FORD       ANALYST         3000                                                 
+
+SQL> select c.name as "CLASS", c.time as "MEETING TIME"
+  2  from class c, enrollment e, student s
+  3  where s.name = 'RYE'
+  4  and s.sid = e.student_number
+  5  and e.class_name = c.name;
+
+CLASS MEETING TI                                                                
+----- ----------                                                                
+BA200 M-F9                                                                      
+BF410 MWF8                                                                      
+CS250 MWF12                                                                     
+
+SQL> select e.ename as "Name"
+  2  from emp e, emp d
+  3  where d.ename = 'FORD'
+  4  and e.empno = d.mgr;
+
+Name                                                                            
+----------                                                                      
+JONES                                                                           
+
+SQL> select s.name as "Student Name"
+  2  from student s, enrollment e, class c
+  3  where c.room = 'SC110'
+  4  and c.name = e.class_name
+  5  and e.student_number = s.sid
+  6  order by s.name;
+
+Student Name                                                                    
+---------------                                                                 
+JONES                                                                           
+PARKS                                                                           
+RYE                                                                             
+
+SQL> select e.ename as "Name", e.sal as "Salary"
+  2  from emp e, emp d
+  3  where e.sal > d.sal
+  4  and d.ename = 'SCOTT'
+  5  and e.job <> 'PRESIDENT';
+
+no rows selected
+
+SQL> select e.ename as "Name", e.job as "Job Title"
+  2  from emp e, emp d
+  3  where e.job = d.job
+  4  and d.ename = 'BLAKE';
+
+Name       Job Title                                                            
+---------- ---------                                                            
+JONES      MANAGER                                                              
+BLAKE      MANAGER                                                              
+CLARK      MANAGER                                                              
+
+SQL> select e.ename as "Employee Name"
+  2  from emp e, emp d
+  3  where e.job = d.job
+  4  and d.ename = 'BLAKE'
+  5  or e.sal >= d.sal
+  6  and d.ename = 'SCOTT';
+
+Employee N                                                                      
+----------                                                                      
+SCOTT                                                                           
+KING                                                                            
+FORD                                                                            
+JONES                                                                           
+BLAKE                                                                           
+CLARK                                                                           
+
+6 rows selected.
+
+SQL> select s.name as "Student Name", s.major as "Major"
+  2  from student s, enrollment e, class c
+  3  where c.room = 'SC213'
+  4  and c.name = e.class_name
+  5  and e.student_number = s.sid
+  6  order by s.name;
+
+Student Name    Major                                                           
+--------------- --------------------                                            
+BAKER           MATH                                                            
+JONES           HISTORY                                                         
+RYE             ACCOUNTING                                                      
+
+SQL> spool off

@@ -1,0 +1,180 @@
+mysql> select JOB, ENAME
+    -> from EMP
+    -> where DEPTNO in
+    -> (select DEPTNO
+    -> from DEPT
+    -> where DNAME = 'RESEARCH');
++---------+-------+
+| JOB     | ENAME |
++---------+-------+
+| CLERK   | SMITH |
+| MANAGER | JONES |
+| ANALYST | SCOTT |
+| CLERK   | ADAMS |
+| ANALYST | FORD  |
++---------+-------+
+5 rows in set (0.19 sec)
+
+mysql> select ENAME, DEPTNO
+    -> from EMP
+    -> where MGR
+    -> in (select MGR from EMP
+    -> where ENAME = 'TURNER');
++--------+--------+
+| ENAME  | DEPTNO |
++--------+--------+
+| ALLEN  |     30 |
+| WARD   |     30 |
+| MARTIN |     30 |
+| TURNER |     30 |
+| JAMES  |     30 |
++--------+--------+
+5 rows in set (0.07 sec)
+
+mysql> select ENAME, JOB, SAL
+    -> from EMP
+    -> where SAL in
+    -> (select SAL
+    -> from EMP
+    -> where ENAME = 'FORD')
+    -> and JOB in
+    -> (select JOB
+    -> from EMP
+    -> where ENAME = 'FORD')
+    -> order by ENAME;
++-------+---------+------+
+| ENAME | JOB     | SAL  |
++-------+---------+------+
+| FORD  | ANALYST | 3000 |
+| SCOTT | ANALYST | 3000 |
++-------+---------+------+
+2 rows in set (0.06 sec)
+
+mysql> select NAME, TIME
+    -> from CLASS
+    -> where NAME in
+    -> (select CLASS_NAME
+    -> from ENROLLMENT
+    -> where STUDENT_NUMBER in
+    -> (select SID
+    -> from STUDENT
+    -> where NAME = 'RYE'));
++-------+-------+
+| NAME  | TIME  |
++-------+-------+
+| BA200 | M-F9  |
+| BF410 | MWF8  |
+| CS250 | MWF12 |
++-------+-------+
+3 rows in set (0.09 sec)
+
+mysql> select ENAME
+    -> from EMP
+    -> where MGR in
+    -> (select EMPNO
+    -> from EMP
+    -> where ENAME = 'FORD');
++-------+
+| ENAME |
++-------+
+| SMITH |
++-------+
+1 row in set (0.26 sec)
+
+mysql> select NAME
+    -> from STUDENT
+    -> where SID in
+    -> (select STUDENT_NUMBER
+    -> from ENROLLMENT
+    -> where CLASS_NAME in
+    -> (select NAME
+    -> from CLASS
+    -> where ROOM = 'SC110'))
+    -> order by NAME;
++-------+
+| NAME  |
++-------+
+| PARKS |
+| RYE   |
++-------+
+2 rows in set (0.00 sec)
+
+mysql> select ENAME
+    -> from EMP
+    -> where JOB in
+    -> (select JOB
+    -> from EMP
+    -> where ENAME = 'BLAKE')
+    -> or SAL >=
+    -> (select SAL
+    -> from EMP
+    -> where ENAME = 'SCOTT');
++-------+
+| ENAME |
++-------+
+| JONES |
+| BLAKE |
+| CLARK |
+| SCOTT |
+| KING  |
+| FORD  |
++-------+
+6 rows in set (0.05 sec)
+
+mysql> select ENAME, JOB
+    -> from EMP
+    -> where JOB in
+    -> (select JOB
+    -> from EMP
+    -> where ENAME ='BLAKE');
++-------+---------+
+| ENAME | JOB     |
++-------+---------+
+| JONES | MANAGER |
+| BLAKE | MANAGER |
+| CLARK | MANAGER |
++-------+---------+
+3 rows in set (0.04 sec)
+
+mysql> select ENAME
+    -> from EMP
+    -> where JOB in
+    -> (select JOB
+    -> from EMP
+    -> where ENAME = 'BLAKE')
+    -> or SAL >=
+    -> (select SAL
+    -> from EMP
+    -> where ENAME = 'SCOTT');
++-------+
+| ENAME |
++-------+
+| JONES |
+| BLAKE |
+| CLARK |
+| SCOTT |
+| KING  |
+| FORD  |
++-------+
+6 rows in set (0.27 sec)
+
+mysql> select NAME, MAJOR
+    -> from STUDENT
+    -> where SID in
+    -> (select STUDENT_NUMBER
+    -> from ENROLLMENT
+    -> where CLASS_NAME in
+    -> (select NAME
+    -> from CLASS
+    -> where ROOM = 'SC213'))
+    -> order by NAME;
++-------+------------+
+| NAME  | MAJOR      |
++-------+------------+
+| BAKER | MATH       |
+| JONES | HISTORY    |
+| RYE   | ACCOUNTING |
++-------+------------+
+3 rows in set (0.00 sec)
+
+mysql> exit
